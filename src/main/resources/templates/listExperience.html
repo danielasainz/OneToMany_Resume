@@ -9,10 +9,15 @@
 <h1>This is my list Experience page</h1>
 
 <div th:each="experience : ${experienceslist}">
+    <h3>Experience</h3>
     <p th:inline="text"> Job Title: [[${experience.jobTitle}]]</p>
     <p th:inline="text"> Organization Name: [[${experience.organizationName}]]</p>
     <div th:each="eachperson: ${experience.onePerson}">
+        <h3>Contact Info</h3>
         <p th:inline="text"> Person's First Name: [[${eachperson.firstName}]]</p>
+        <p th:inline="text"> Person's Last Name: [[${eachperson.lastName}]]</p>
+        <p th:inline="text"> Person's Email Address: [[${eachperson.emailAddress}]]</p>
+        <p th:inline="text"> Person's Phone Number: [[${eachperson.phoneNumber}]]</p>
     </div>
     <span><a th:href="@{/update/{id}(id=${experience.id})}">Update Experience</a></span>
     <span th:replace="index::scripts"></span>
@@ -20,4 +25,5 @@
 
 </body>
 </html>
+
 

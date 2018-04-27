@@ -8,6 +8,7 @@
 <h1>This is my listPerson page</h1>
 
 <div th:each="person : ${personslist}">
+    <h3>Contact Info</h3>
     <p th:inline="text">Person's First Name: [[${person.firstName}]]</p>
     <p th:inline="text">Person's Last Name: [[${person.lastName}]]</p>
     <p th:inline="text">Person's Email Address: [[${person.emailAddress}]]</p>
@@ -15,6 +16,7 @@
     <!--created these last two lines below to display courses in the liststudent.htmlpage
     //myCourses comes from Set name in your Student object class-->
     <div th:each="eachexperience: ${person.myExperiences}">
+        <h3>Experience</h3>
         <p th:inline="text">Job Title: [[${eachexperience.jobTitle}]]</p>
         <p th:inline="text">Organization Name: [[${eachexperience.organizationName}]]</p>
     </div>
