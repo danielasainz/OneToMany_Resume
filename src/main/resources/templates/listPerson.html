@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head th:replace="index::first">
+</head>
+
+<body>
+<nav th:replace="index::body"></nav>
+<h1>This is my listPerson page</h1>
+
+<div th:each="person : ${personslist}">
+    <p th:inline="text">Person's First Name: [[${person.firstName}]]</p>
+    <p th:inline="text">Person's Last Name: [[${person.lastName}]]</p>
+    <p th:inline="text">Person's Email Address: [[${person.emailAddress}]]</p>
+    <p th:inline="text">Person's Phone Number: [[${person.phoneNumber}]]</p>
+    <!--created these last two lines below to display courses in the liststudent.htmlpage
+    //myCourses comes from Set name in your Student object class-->
+    <div th:each="eachexperience: ${person.myExperiences}">
+        <p th:inline="text">Job Title: [[${eachexperience.jobTitle}]]</p>
+        <p th:inline="text">Organization Name: [[${eachexperience.organizationName}]]</p>
+    </div>
+
+    <span><a th:href="@{/updateperson/{id}(id=${person.id})}">Update Contact Info</a></span>
+    <span th:replace="index::scripts"></span>
+</div>
+</body>
+</html>

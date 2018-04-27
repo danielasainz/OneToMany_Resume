@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head th:replace="index::first">
+</head>
+
+<body>
+<nav th:replace="index::body"></nav>
+<h1>This is my addPerson page</h1>
+
+<form action="#" th:action="@{/saveperson}" th:object="${aPerson}" method="post">
+
+    <input type="hidden" th:field="*{id}"/><br/>
+
+    Person's first name: <input type="text" th:field="*{firstName}"/><br/>
+    Person's last name: <input type="text" th:field="*{lastName}"/><br/>
+    Person's email address: <input type="text" th:field="*{emailAddress}"/><br/>
+    Person's phone number: <input type="text" th:field="*{phoneNumber}"/><br/>
+    <input type="submit" value="Submit"/>
+
+</form>
+
+<span th:replace="index::scripts"></span>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head th:replace="index::first">
+</head>
+
+<body>
+<nav th:replace="index::body"></nav>
+
+<h1>This is my list Experience page</h1>
+
+<div th:each="experience : ${experienceslist}">
+    <p th:inline="text"> Job Title: [[${experience.jobTitle}]]</p>
+    <p th:inline="text"> Organization Name: [[${experience.organizationName}]]</p>
+    <div th:each="eachperson: ${experience.onePerson}">
+        <p th:inline="text"> Person's First Name: [[${eachperson.firstName}]]</p>
+    </div>
+    <span><a th:href="@{/update/{id}(id=${experience.id})}">Update Experience</a></span>
+    <span th:replace="index::scripts"></span>
+</div>
+
+</body>
+</html>
+

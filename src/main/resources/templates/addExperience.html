@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head th:replace="index::first">
+</head>
+
+<body>
+<nav th:replace="index::body"></nav>
+<h1>This is my add Experience page</h1>
+
+<form action="#" th:action="@{/save}" th:object="${aExperience}" method="post">
+
+    <input type="hidden" th:field="*{id}"/><br/>
+
+    Position Name: <input type="text" th:field="*{jobTitle}"/><br/>
+    Organization Name: <input type="text" th:field="*{organizationName}"/><br/>
+    Person:<select th:field="*{onePerson}">
+    <option th:each="eachPerson:${personslist}"
+            th:value="${eachPerson.id}"
+            th:text="${eachPerson.firstName}">
+    </option>
+</select>
+    <input type="submit" value="Submit"/>
+</form>
+
+
+<span th:replace="index::scripts"></span>
+</body>
+</html>
